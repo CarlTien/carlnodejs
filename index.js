@@ -16,10 +16,10 @@ app.get('/', function(request, response) {
 
 app.get('*', function(request, response) {
  // response.render('pages/index');
- //var pathname = url.parse(request.url).pathname;
- //console.log("Request for " + pathname + " received.");
- //response.writeHead(200, {"Content-Type": "text/plain"});
- //response.end();
+ var pathname = url.parse(request.url).pathname;
+ response.writeHead(200, {"Content-Type": "text/plain"});
+ response.write("你是从"+pathname+"这里访问的吧宝宝？");
+ response.end();
 });
 
 app.listen(app.get('port'), function() {
