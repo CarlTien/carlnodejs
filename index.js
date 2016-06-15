@@ -11,10 +11,14 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
+  response.render('pages/index');
+});
+
+app.get('*', function(request, response) {
  // response.render('pages/index');
  var pathname = url.parse(request.url).pathname;
  console.log("Request for " + pathname + " received.");
- response.writeHead(200, {"Content-Type": "text/plain"+pathname});
+ response.writeHead(200, {"Content-Type": "text/plain"});
  response.end();
 });
 
