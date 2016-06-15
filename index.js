@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
  // response.render('pages/index');
- console.log(request);
+ console.log($request);
 });
 
 app.listen(app.get('port'), function() {
