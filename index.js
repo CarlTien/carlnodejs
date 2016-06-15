@@ -1,4 +1,5 @@
 var express = require('express');
+var url = require("url");
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -11,7 +12,10 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
  // response.render('pages/index');
- console.log($request);
+ var pathname = url.parse(request.url).pathname;
+ console.log("Request for " + pathname + " received.");
+ response.writeHead(200, {"Content-Type": "text/plain"});
+ response.end();
 });
 
 app.listen(app.get('port'), function() {
