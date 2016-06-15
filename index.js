@@ -14,7 +14,7 @@ app.get('/', function(request, response) {
  // response.render('pages/index');
  var pathname = url.parse(request.url).pathname;
  console.log("Request for " + pathname + " received.");
- response.writeHead(200, {"Content-Type": "text/plain"});
+ response.writeHead(200, {"Content-Type": "text/plain"+pathname});
  response.end();
 });
 
